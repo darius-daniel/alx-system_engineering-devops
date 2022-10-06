@@ -30,4 +30,6 @@
 
 12-directory_permissions - A script that creates a directory called __my_dir__ with permissions __751__ in the working directory.
 
+13-change_group - A script that changes the group owner to _school_ for the _file_ hello.
+
 
