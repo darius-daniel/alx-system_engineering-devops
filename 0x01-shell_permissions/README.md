@@ -26,4 +26,6 @@
 
 10-mirror_permissions - A script that sets the mode of the file _hello_ the same as _olleh’s_ mode.
 
+11-directories_permission - Adds execute permission to all subdirectories of the current directory for the owner, the group owner and all other users. Regular files should not be changed.
+
 
