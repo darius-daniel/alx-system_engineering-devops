@@ -1,4 +1,4 @@
-0-iam_betty - Switches the current user to the user, betty 
+See0-iam_betty - Switches the current user to the user, betty 
 \n1-who_am_i - Prints the effective username if the current user.
 \n2-groups - Prints all the groups the current user is part of
 \n3-new_owner - Changes ownership of file, hello, to user, Betty.
@@ -10,4 +10,5 @@
                  Owner: no permission at all
                  Group: no permission at all
                  Other users: all the permissions
-\n9-John_Doe - A script that sets the mode of the file hello to this: -rwxr-x-wx 1
+\n9-John_Doe - A script that sets the mode of the file hello to this: -rwxr-x-wx 
+\n10-mirror_permissions - A script that sets the mode of the file hello the same as olleh’s mode.
