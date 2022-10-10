@@ -17,3 +17,5 @@
 8-cwd_state - A script that writes the results of the command *ls -la* into the file *ls_cwd_content*
 
 9-duplicate_last_line - A script that duplicates the last line of*iacta*
+
+10-no_more_js - A script that deletes all the regular files (not the directories) with a .js extensions that are present in the current current directory
