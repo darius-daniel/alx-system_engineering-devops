@@ -13,3 +13,5 @@
 6-third_line - Displays the third line of the file iacta
 
 7-file - A script that creata a file, \*\\'"Best School"\'\\*$\?\*\*\*\*\*:).
+
+8-cwd_state - A script that writes the results of the command *ls -la* into the file *ls_cwd_content*
