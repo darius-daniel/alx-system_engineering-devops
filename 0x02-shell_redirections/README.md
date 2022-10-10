@@ -8,4 +8,6 @@
 
 4-lastlines - Displays the last ten lines of /etc/passwd
 
-4-firstlines - Displays the first ten lines of /etc/passwd
+5-firstlines - Displays the first ten lines of /etc/passwd
+
+6-third_line - Displays the third line of the file iacta
