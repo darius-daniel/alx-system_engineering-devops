@@ -11,3 +11,5 @@
 5-firstlines - Displays the first ten lines of /etc/passwd
 
 6-third_line - Displays the third line of the file iacta
+
+7-file - A script that creata a file, \*\\'"Best School"\'\\*$\?\*\*\*\*\*:).
