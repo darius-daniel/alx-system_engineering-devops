@@ -1,2 +1,2 @@
-#!/bin/bash
-printf "%s\n" "$((2#BINARY))"
+#!/bin/bin
+echo ((2#$BINARY))
