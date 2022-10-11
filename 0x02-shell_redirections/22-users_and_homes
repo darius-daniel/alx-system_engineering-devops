@@ -1,3 +1,2 @@
 #!/bin/bash
-cat list | sort | uniq | less
 cat /etc/passwd | sort | cut -d: 1, 6
