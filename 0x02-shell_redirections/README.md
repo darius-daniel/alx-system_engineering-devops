@@ -12,7 +12,7 @@
 
 6-third_line - Displays the third line of the file iacta
 
-7-file - A script that creata a file, \*\\'"Best School"\'\\*$\?\*\*\*\*\*:).
+7-file - A script that creates a a file, \*\\'"Best School"\'\\*$\?\*\*\*\*\*:).
 
 8-cwd_state - A script that writes the results of the command *ls -la* into the file *ls_cwd_content*
 
@@ -34,3 +34,5 @@
 15-countthatword - A script that displays the number of lines that contain the pattern *bin* in the file */etc/passwd*
 
 16-whatsnext - A script that display the lines containing the pattern, *root*, and 3 lines after them in the file /etc/passwd.
+
+17-hidethisword - A script that displays all lines in the file, */etc/passwd*, that does not contain the pattern, *bin*.
