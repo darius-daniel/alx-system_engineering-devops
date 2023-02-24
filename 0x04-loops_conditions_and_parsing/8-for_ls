@@ -2,6 +2,6 @@
 # A Bash script that displays the contents of the current directory in a list
 # format, where only the part of the name after the first dash is displayed
 
-dir_contents=ls
-
-echo $dir_contents
+for i in *; do
+	echo "$i" | cut -f 2- -d '-'
+done
