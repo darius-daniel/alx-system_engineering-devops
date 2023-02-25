@@ -2,7 +2,7 @@
 # A script that displays "To infinity and beyond" indefinitely
 #	- in between each iteration of the loop, sleep process for 2 seconds
 
-while [ 1 ]; do
+while true; do
 	echo "To infinity and beyond"
 	sleep 2
 done
