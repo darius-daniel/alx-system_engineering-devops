@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# A bash script that:
+# 	- displays "To infinity and beyond" indefinitely
+# 	- sleeps for two seconds after each iteration
+
+while true; do
+	echo "I am alive!" >> /tmp/my_process
+	sleep 2
+done
