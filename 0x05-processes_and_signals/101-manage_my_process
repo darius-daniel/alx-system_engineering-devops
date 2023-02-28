@@ -1,22 +1,28 @@
 #!/usr/bin/env bash
 # Manages the "manage_my_process" daemon
 
-pos_arg=$1
-
-if [ "$pos_arg" = "start" ]; then
+# Functions
+start(){
 	./manage_my_process &
 	echo $! > /var/run/my_process.pid
 	echo "manage_my_process started"
-elif [ "$pos_arg" = "stop" ]; then
+}
+
+stop(){
 	sudo kill -KILL "$(cat '/var/run/my_process.pid')"
 	rm -rf /var/run/my_process.pid
 	echo "manage_my_process stopped"
+}
+
+pos_arg=$1
+
+if [ "$pos_arg" = "start" ]; then
+	start
+elif [ "$pos_arg" = "stop" ]; then
+	stop
 elif [ "$pos_arg" = "restart" ]; then
-	sudo kill -KILL "$(cat '/var/run/my_process.pid')"
-	rm -rf /var/run/my_process.pid
-	./manage_my_process &
-	echo $! > /var/run/my_process.pid
-	echo "manage_my_process restarted"
+	stop
+	start
 else
 	echo "Usage: manage_my_process {start|stop|restart}"
 fi
