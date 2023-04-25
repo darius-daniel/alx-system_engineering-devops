@@ -8,5 +8,5 @@ elif [ $# -eq 3 ]; then
     scp -o StrictHostKeyChecking=no "$1" "$3@$2:~/";
 else
     # scp file.txt remote_username@10.10.0.2:/remote/directory
-    scp -o StrictHostKeyChecking=no "$1" "$3@$2:~/" "$4";
+    scp -o StrictHostKeyChecking=no -i "$4" "$1" "$3@$2:~/";
 fi
