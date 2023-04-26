@@ -1,4 +1,0 @@
-#!/usr/bin/env bash
-# Command that gets makes the retrieval of a web page from a web server in
-# a docker container possible
-service apache2 start
