@@ -10,8 +10,8 @@ GSSAPIAuthentication yes
 
 file { '/etc/ssh/ssh_config':
     ensure  => file,
-    owner   => 'root',
-    group   => 'root',
-    mode    => '0744',
     content => $str
+    owner   => 'ubuntu',
+    group   => 'ubuntu',
+    mode    => '0744',
 }
