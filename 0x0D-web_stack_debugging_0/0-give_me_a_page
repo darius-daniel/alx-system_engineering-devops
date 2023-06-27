@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# Command that gets Apache running on a Docker container and returns a page containing
+# a string: Hello Holberton, when querying the root of it
+sudo service apache2 start
