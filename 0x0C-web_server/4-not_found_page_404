@@ -2,7 +2,7 @@
 # Configure Nginx server so that /redirect_me is redirecting to another page
 sudo apt -y update
 sudo apt -y install nginx
-sudo service stop nginx
+sudo service nginx stop
 echo "Ceci n'est pas une page" > ./custom_404.html
 sudo mv ./custom_404.html /usr/share/nginx/html/
 sudo sed -i "s/server_name _;/server_name _;\n\trewrite ^\/redirect_me https:\/\/google.com permanent;\n\n\terror_page 404 \/custom_404.html;\n\tlocation = \/custom_404.html {\n\t\troot \/usr\/share\/nginx\/html;\n\t\tinternal;\n\t}/" /etc/nginx/sites-available/default
