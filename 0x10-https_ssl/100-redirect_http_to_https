@@ -40,23 +40,21 @@ defaults
         errorfile 503 /etc/haproxy/errors/503.http
         errorfile 504 /etc/haproxy/errors/504.http
 
-frontend www-http
+frontend mysite
         bind *:80
-        http-add set-a X-Forwarded-Proto:\ http
-        default_backend web_server
-
-frontend www-https
-        bind *:443 ssl crt /etc/haproxy/ssl/www.dariusdaniel.tech.pem
-        http-request set-header X-Forwarded-Proto https
+        bind *:443 ssl crt /etc/haproxy/certs/www.dariusdaniel.tech.pem
         acl letsencrypt-acl path_beg /.well-known/acme-challenge/
         use_backend letsencrypt-backend if letsencrypt-acl
         default_backend web_servers
 
 backend web_servers
-        redirect scheme https if !{ ssl_fc }
+        http-request set-header X-Forwarded-Proto https if { ssl_fc }
+        http-request set-header X-Forwarded-Proto http if !{ ssl_fc }
+        http-request redirect scheme https if !{ ssl_fc }
         balance roundrobin
         server 171836-web-01 35.153.19.179:80 check
         server 171836-web-02 34.201.174.149:80 check
 
 backend letsencrypt-backend
         server letsencrypt 127.0.0.1:54321
+
