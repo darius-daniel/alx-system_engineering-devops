@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# A script that accepts one argument and runs the whoami command under the user passed
+if [ -n "$1" ]
+then
+    su - "$1"
+fi
+whoami
