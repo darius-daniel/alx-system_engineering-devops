@@ -3,6 +3,6 @@ sudo apt install -y ufw
 sudo ufw default deny incoming
 sudo ufw allow 'OpenSSH'
 sudo ufw allow ssh
-sudo ufw allow https ssl
+sudo ufw allow https
 sudo ufw allow http
 sudo ufw reload
