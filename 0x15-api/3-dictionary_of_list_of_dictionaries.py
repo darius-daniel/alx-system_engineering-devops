@@ -2,7 +2,6 @@
 """Extends 0-gather_data_from_an_API and exports data to JSON file."""
 import json
 import requests
-from sys import argv
 
 
 if __name__ == "__main__":
@@ -13,7 +12,10 @@ if __name__ == "__main__":
         for user in users:
             data = {'{}'.format(user.get('id')): []}
 
-            todo_url = f"https://jsonplaceholder.typicode.com/users/{user.get('id')}/todos"
+            todo_url = (
+                "https://jsonplaceholder.typicode.com/users/{}/todos".format(
+                    user.get('id')
+                ))
             tasks = json.loads(requests.get(todo_url).content)
 
             for task in tasks:
