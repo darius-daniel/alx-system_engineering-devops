@@ -15,14 +15,15 @@ def count_completed(task_list):
     return count
 
 
-todo_url = f'https://jsonplaceholder.typicode.com/users/{argv[1]}/todos'
-user_info_url = f'https://jsonplaceholder.typicode.com/users/{argv[1]}'
+if __name__ == "__main__":
+    todo_url = f'https://jsonplaceholder.typicode.com/users/{argv[1]}/todos'
+    user_info_url = f'https://jsonplaceholder.typicode.com/users/{argv[1]}'
 
-tasks = json.loads(requests.get(todo_url).content)
-user_info = json.loads(requests.get(user_info_url).content)
+    tasks = json.loads(requests.get(todo_url).content)
+    user_info = json.loads(requests.get(user_info_url).content)
 
-print("Employee {} is done with tasks({}/{}):".format(
-        user_info.get('name'), count_completed(tasks), len(tasks)))
-for task in tasks:
-    if task.get('completed') is True:
-        print("\t {}".format(task.get('title')))
+    print("Employee {} is done with tasks({}/{}):".format(
+            user_info.get('name'), count_completed(tasks), len(tasks)))
+    for task in tasks:
+        if task.get('completed') is True:
+            print("\t {}".format(task.get('title')))
