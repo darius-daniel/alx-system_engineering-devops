@@ -6,16 +6,6 @@ import requests
 from sys import argv
 
 
-def count_completed(task_list):
-    """Counts the number of completed tasks on the TODO list."""
-    count = 0
-    for t in task_list:
-        if t.get('completed') is True:
-            count += 1
-
-    return count
-
-
 if __name__ == "__main__":
     todo_url = f'https://jsonplaceholder.typicode.com/users/{argv[1]}/todos'
     user_info_url = f'https://jsonplaceholder.typicode.com/users/{argv[1]}'
@@ -24,10 +14,9 @@ if __name__ == "__main__":
     uinfo = json.loads(requests.get(user_info_url).content)
 
     with open('{}.csv'.format(argv[1]), 'w', newline='') as csvfile:
-        csvwriter = csv.writer(csvfile)
+        csvwriter = csv.writer(csvfile, quoting=csv.QUOTE_ALL)
         data = []
         for task in tasks:
-            # "USER_ID","USERNAME","TASK_COMPLETED_STATUS","TASK_TITLE"
             csvwriter.writerow(
                 [
                     uinfo.get('id'),
