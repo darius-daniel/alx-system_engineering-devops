@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-""" A script that returns a list of tasks for a given employee id from an API
+"""A script that returns a list of tasks for a given employee id from an API.
 """
 from sys import argv
 import requests
@@ -7,7 +7,7 @@ import json
 
 
 def count_completed(task_list):
-    """Counts the number of completed tasks on the TODO list"""
+    """Counts the number of completed tasks on the TODO list."""
     count = 0
     for t in task_list:
         if t.get('completed') is True:
