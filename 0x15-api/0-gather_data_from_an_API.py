@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-A script that returns TODO list info for a given employee id from an API
+A script that returns a list of tasks for a given employee id from an API
 """
 from sys import argv
 import requests
