@@ -24,4 +24,3 @@ def number_of_subscribers(subreddit):
         return 0
     else:
         return total_subs
-
