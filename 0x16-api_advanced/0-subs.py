@@ -18,9 +18,12 @@ def number_of_subscribers(subreddit):
     response = requests.get(url, headers=headers, allow_redirects=False)
     params = json.loads(response.content.decode('utf-8'))
 
-    try:
-        total_subs = params["data"]["subscribers"]
-    except KeyError:
-        return 0
+    if response.status_code == 200:
+        try:
+            total_subs = params["data"]["subscribers"]
+        except KeyError:
+            pass
+        else:
+            return total_subs
     else:
-        return total_subs
+        return 0
