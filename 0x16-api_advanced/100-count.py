@@ -1,0 +1,59 @@
+#!/usr/bin/python3
+"""Contains a function that queries the Reddit API, parses the title of all
+hot articles, and prints a sorted count of given keywords."""
+import requests
+
+
+def grow_hot_list(hot_list, hot_posts):
+    """Recursively append the titles of the hot posts to the hot_list. """
+    if len(hot_posts) > 0:
+        hot_list.append(hot_posts[0]["data"]["title"])
+        hot_posts.pop(0)
+        grow_hot_list(hot_list, hot_posts)
+
+
+def recurse(subreddit, hot_list=[], after=None):
+    """Queries the Reddit API and prints, recursively, the titles of the first
+    10 hot posts listed for a given subreddit. """
+    url = 'https://www.reddit.com/r/{}/hot.json'.format(subreddit)
+    headers = {'User-Agent': 'Chrome'}
+    parameters = {'after': after}
+    response = requests.get(
+        url, headers=headers, params=parameters, allow_redirects=False
+    )
+
+    if response.status_code == 200:
+        params = response.json()
+        try:
+            hot_posts = params["data"]["children"]
+        except KeyError:
+            return None
+        else:
+            grow_hot_list(hot_list, hot_posts)
+    else:
+        return None
+
+    after = params["data"]["after"]
+    if after is None:
+        return hot_list
+
+    return recurse(subreddit, hot_list=hot_list, after=after)
+
+
+def count_words(subreddit, word_list):
+    """Contains a function that queries the Reddit API, parses the title of
+    all hot articles, and prints a sorted count of given keywords."""
+    hot_list = recurse(subreddit)
+    records = {}
+
+    for word in word_list:
+        for title in hot_list:
+            title_words = title.lower().split(' ')
+            if word.lower() in records.keys():
+                records[word.lower()] += title_words.count(word.lower())
+            else:
+                records[word.lower()] = title_words.count(word.lower())
+
+    for record in records:
+        if records[record] > 0:
+            print("{}: {}".format(record, records[record]))
