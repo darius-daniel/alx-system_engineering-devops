@@ -30,6 +30,8 @@ def recurse(subreddit, hot_list=[], after=None):
             return None
         else:
             grow_hot_list(hot_list, hot_posts)
+    else:
+        return None
 
     after = params["data"]["after"]
     if after is None:
