@@ -4,6 +4,14 @@ the first 10 hot posts listed for a given subreddit"""
 import requests
 
 
+def grow_hot_list(hot_list, hot_posts):
+    """Recursively append the titles of the hot posts to the hot_list. """
+    if len(hot_posts) > 0:
+        hot_list.append(hot_posts[0]["data"]["title"])
+        hot_posts.pop(0)
+        grow_hot_list(hot_list, hot_posts)
+
+
 def recurse(subreddit, hot_list=[], after=None):
     """Queries the Reddit API and prints, recursively, the titles of the first
     10 hot posts listed for a given subreddit. """
@@ -21,8 +29,7 @@ def recurse(subreddit, hot_list=[], after=None):
         except KeyError:
             return None
         else:
-            for post in hot_posts:
-                hot_list.append(post["data"]['title'])
+            grow_hot_list(hot_list, hot_posts)
 
     after = params["data"]["after"]
     if after is None:
