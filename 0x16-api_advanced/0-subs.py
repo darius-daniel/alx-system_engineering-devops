@@ -18,7 +18,7 @@ def number_of_subscribers(subreddit):
             total_subs = params["data"]["subscribers"]
         except KeyError:
             return 0
-        else:
+        else: 
             return total_subs
 
     return 0
