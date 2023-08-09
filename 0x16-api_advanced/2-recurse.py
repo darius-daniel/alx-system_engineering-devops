@@ -15,7 +15,7 @@ def grow_hot_list(hot_list, hot_posts):
 def recurse(subreddit, hot_list=[], after=None):
     """Queries the Reddit API and prints, recursively, the titles of the first
     10 hot posts listed for a given subreddit. """
-    url = f'https://www.reddit.com/r/{subreddit}/hot.json'
+    url = 'https://www.reddit.com/r/{}/hot.json'.format(subreddit)
     headers = {'User-Agent': 'Chrome'}
     parameters = {'after': after}
     response = requests.get(
